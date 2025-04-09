@@ -1,16 +1,17 @@
 name: Lint translations
-
 on:
-  push:
-    paths:
-      - '.github/workflows/translations.yml'
-      - 'translation/**'
-      - 'bin/trans-lint'
-  pull_request:
-    paths:
-      - '.github/workflows/translations.yml'
-      - 'translation/**'
-      - 'bin/trans-lint'
+  workflow_dispatch:
+# on:
+#   push:
+#     paths:
+#       - '.github/workflows/translations.yml'
+#       - 'translation/**'
+#       - 'bin/trans-lint'
+#   pull_request:
+#     paths:
+#       - '.github/workflows/translations.yml'
+#       - 'translation/**'
+#       - 'bin/trans-lint'
 
 jobs:
   translations:
