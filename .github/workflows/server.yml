@@ -1,35 +1,36 @@
 name: Build server
-
 on:
-  push:
-    paths:
-      - '.github/workflows/server.yml'
-      - 'app/**'
-      - 'conf/**'
-      - 'modules/**'
-      - 'project/**'
-      - 'translation/**'
-      - 'build.sbt'
-      - 'lila.sh'
-      - 'conf/application.conf.default'
-      - '.sbtopts.default'
-    branches-ignore:
-      - 'l10n_master'
-  pull_request:
-    paths:
-      - '.github/workflows/server.yml'
-      - 'app/**'
-      - 'conf/**'
-      - 'modules/**'
-      - 'project/**'
-      - 'translation/source/**'
-      - 'build.sbt'
-      - 'lila.sh'
-      - 'conf/application.conf.default'
-      - '.sbtopts.default'
+  workflow_dispatch:
+# on:
+#   push:
+#     paths:
+#       - '.github/workflows/server.yml'
+#       - 'app/**'
+#       - 'conf/**'
+#       - 'modules/**'
+#       - 'project/**'
+#       - 'translation/**'
+#       - 'build.sbt'
+#       - 'lila.sh'
+#       - 'conf/application.conf.default'
+#       - '.sbtopts.default'
+#     branches-ignore:
+#       - 'l10n_master'
+#   pull_request:
+#     paths:
+#       - '.github/workflows/server.yml'
+#       - 'app/**'
+#       - 'conf/**'
+#       - 'modules/**'
+#       - 'project/**'
+#       - 'translation/source/**'
+#       - 'build.sbt'
+#       - 'lila.sh'
+#       - 'conf/application.conf.default'
+#       - '.sbtopts.default'
+
 env:
   SBT_OPTS: '-Xmx2048M'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -53,7 +54,6 @@ jobs:
           name: lila-server
           path: lila-3.0.tar.zst
           compression-level: 0 # already compressed
-
   format:
     runs-on: ubuntu-latest
     steps:
@@ -65,6 +65,5 @@ jobs:
           cache: sbt
       - name: Setup sbt
         uses: sbt/setup-sbt@v1
-
       - name: Check Formatting
         run: sbt scalafmtCheckAll

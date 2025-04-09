@@ -1,23 +1,23 @@
 name: Build assets
-
 env:
   ACTIONS_STEP_DEBUG: true
-
 on:
-  push:
-    paths:
-      - '.github/workflows/assets.yml'
-      - 'public/**'
-      - 'ui/**'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
-  pull_request:
-    paths:
-      - '.github/workflows/assets.yml'
-      - 'public/**'
-      - 'ui/**'
-      - 'package.json'
-      - 'pnpm-lock.yaml'
+  workflow_dispatch:
+# on:
+#   push:
+#     paths:
+#       - '.github/workflows/assets.yml'
+#       - 'public/**'
+#       - 'ui/**'
+#       - 'package.json'
+#       - 'pnpm-lock.yaml'
+#   pull_request:
+#     paths:
+#       - '.github/workflows/assets.yml'
+#       - 'public/**'
+#       - 'ui/**'
+#       - 'package.json'
+#       - 'pnpm-lock.yaml'
 
 jobs:
   assets:
